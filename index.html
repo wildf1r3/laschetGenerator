@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            grid-template-rows: 1fr auto 2fr;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            background-color: lightgrey;
+            margin: 0;
+        }
+
+        .center {
+            grid-column: 2;
+            grid-row: 2;
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            width: 400px;
+            background-color: white;
+        }
+    </style>
+    <script lang="javascript">
+        const generate = () => {
+            const a = (phrases) => phrases[Math.floor(Math.random() * phrases.length)]
+            const b = [
+                ["ein", "zwei", "drei", "vier", "fünf", "sechs"],
+                ["tägige/n", "wöchige/n", "monatige/n", "fache/n", "malige/n", "hebige/n"],
+                ["harte/n", "soften", "optionale/n", "intrasparente/n", "alternativlose/n", "unumkehrbare/n"],
+                ["Wellenbrecher-", "Brücken-", "Treppen-", "Wende-", "Impf-", "Ehren-"],
+                ["Lockdown", "Stopp", "Maßnahme", "Kampagne", "Sprint", "Matrix"],
+                ["zum Sommer", "auf Weiteres", "zur Bundestagswahl", "2030", "nach den Abiturprüfungen", "in die Puppen"],
+                ["sofortigen", "nachhaltigen", "allmählichen", "unausweichlichen", "wirtschaftsschonenden", "willkürlichen"],
+                ["Senkung", "Steigerung", "Beendigung", "Halbierung", "Vernichtung", "Beschönigung"],
+                ["Infektionszahlen.", "privaten Treffen.", "Wirtschaftsleistung.", "Wahlprognosen.", "dritten Welle.", "Bundeskanzlerin."]
+            ]
+
+            return `Was wir jetzt brauchen, ist ein/e ${a(b[0])}${a(b[1])} ${a(b[2])} ${a(b[3])}${a(b[4])} bis ${a(b[5])} zur ${a(b[6])} ${a(b[7])} der ${a(b[8])}`
+        }
+
+        function refresh() {
+            document.getElementById('text').innerText = generate()
+        }
+
+        window.onload = refresh
+    </script>
+</head>
+
+<body>
+
+    <div class="center">
+        <div id="text"></div>
+        <button onclick="refresh()">Mieser Plan!</button>
+    </div>
+
+</body>
+
+</html>
